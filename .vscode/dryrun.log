@@ -1,0 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/se3313-2020-lab3'
+g++ -c Client.cpp -std=c++11
+g++ -c thread.cpp -std=c++11
+g++ -c socket.cpp -std=c++11
+g++ -c Blockable.cpp -std=c++11
+g++ -o Client Client.o thread.o socket.o Blockable.o -pthread -l rt
+g++ -c Server.cpp -std=c++11
+g++ -c socketserver.cpp -std=c++11
+g++ -o Server Server.o thread.o socket.o socketserver.o Blockable.o -pthread -l rt
+make: Leaving directory '/home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/se3313-2020-lab3'
+ 

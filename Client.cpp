@@ -4,36 +4,49 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <string>
 
 using namespace Sync;
 
 int main(void)
 {
+	std::string userInput;
+	int * p;
+
 	// Welcome the user 
 	std::cout << "SE3313 Lab 3 Client" << std::endl;
 
 	// Create our socket
 	Socket socket("127.0.0.1", 3000);
 
+	//Declare recv buffer
+	ByteArray recvBuff(p, 255);
 
 	//Try to connect to server
+	socket.Open();
 
 	//Loop
-	//Once connected await for string input
-	//Wait for reply
-	//When reply 
-	//Continue loop
+	while(true) {
+		
+		//Once connected await for string input
+		std::cout << "awaiting input.. " << std::endl;
+		std::cin >> userInput;
+		//Wait for reply
+		//When reply 
+		if (userInput != "done") {
+			socket.Write(ByteArray(userInput));
 
-	//To write to socket and read from socket. You may use ByteArray 
-	//socket.Write(data);
-	//socket.Read(data);
+			socket.Read(recvBuff);
+		} else {
+			break;
+		}
+	
+	}
 
 	//If done entered
 	//Send flag to server
-	//loop
-	//close all sockets
+	socket.Write(ByteArray("00000000"));
 	socket.Close();
-	//terminate threads.. ie. flag them
-	
+
 	return 0;
 }
