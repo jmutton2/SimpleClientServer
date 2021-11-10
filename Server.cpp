@@ -7,6 +7,7 @@
 #include <algorithm>
 
 using namespace Sync;
+using namespace std;
 
 // This thread handles the server operations
 class ServerThread : public Thread
@@ -45,7 +46,7 @@ class ServerThread : public Thread
 
     int main(void)
     {
-        std::cout << "I am a server." << std::endl;
+        cout << "I am a server." << endl;
         
         // Create our server
         SocketServer server(3000);    
