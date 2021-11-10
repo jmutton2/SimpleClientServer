@@ -53,8 +53,7 @@ Socket::~Socket(void)
 
 int Socket::Open(void)
 {
-    // int connectReturn = connect(GetFD(),(sockaddr*)&socketDescriptor,sizeof(socketDescriptor));
-        int connectReturn = connect(GetFD(),(sockaddr*)&socketDescriptor,sizeof(socketDescriptor));
+    int connectReturn = connect(GetFD(),(sockaddr*)&socketDescriptor,sizeof(socketDescriptor));
 
 
     if (connectReturn != 0)

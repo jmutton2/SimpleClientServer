@@ -24,7 +24,7 @@ int main(void)
 
 	//Try to connect to server 
 	//This isnt needed?
-	//socket.Open();
+	socket.Open();
 
 	std::cout << "awaiting input.. " << std::endl;
 
@@ -38,7 +38,7 @@ int main(void)
 		if (userInput != "done") {
 			socket.Write(ByteArray(userInput));
 
-			socket.Read(recvBuff);
+			std::cout << " " << socket.Read(recvBuff) << std::endl;
 		} else {
 			break;
 		}
