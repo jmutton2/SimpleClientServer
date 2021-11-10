@@ -4,12 +4,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include <string>
+// #include <string>
 
 using namespace Sync;
 
 int main(void)
-{
+{	
 	std::string userInput;
 	int * p;
 
@@ -22,14 +22,16 @@ int main(void)
 	//Declare recv buffer
 	ByteArray recvBuff(p, 255);
 
-	//Try to connect to server
-	socket.Open();
+	//Try to connect to server 
+	//This isnt needed?
+	//socket.Open();
 
-	//Loop
+	std::cout << "awaiting input.. " << std::endl;
+
+	// Loop
 	while(true) {
 		
 		//Once connected await for string input
-		std::cout << "awaiting input.. " << std::endl;
 		std::cin >> userInput;
 		//Wait for reply
 		//When reply 
