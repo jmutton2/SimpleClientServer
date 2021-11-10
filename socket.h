@@ -22,7 +22,8 @@ public:
             returnValue.push_back(v[i]);
         return returnValue;
     }
-    ByteArray(void){}
+    ByteArray(void){
+    }
     ByteArray(std::string const & in)
     {
         for (int i=0;i<in.size();i++)
@@ -38,21 +39,21 @@ public:
 
 class Socket : public Blockable
 {
-private:
-    sockaddr_in socketDescriptor;
-    bool open;
-    Event terminator;
-public:
-    Socket(std::string const & ipAddress, unsigned int port);
-    Socket(int socketFD);
-    Socket(Socket const & s);
-    Socket & operator=(Socket const & s);
-    ~Socket(void);
+	private:
+	    sockaddr_in socketDescriptor;
+	    bool open;
+	    Event terminator;
+	public:
+	    Socket(std::string const & ipAddress, unsigned int port);
+	    Socket(int socketFD);
+	    Socket(Socket const & s);
+	    Socket & operator=(Socket const & s);
+	    ~Socket(void);
 
-    int Open(void);
-    int Write(ByteArray const & buffer);
-    int Read(ByteArray & buffer);
-    void Close(void);
-};
+	    int Open(void);
+	    int Write(ByteArray const & buffer);
+	    int Read(ByteArray & buffer);
+	    void Close(void);
+	};
 };
 #endif // SOCKET_H

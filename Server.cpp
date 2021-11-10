@@ -6,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 
+
 using namespace Sync;
 using namespace std;
 
@@ -33,7 +34,7 @@ class ServerThread : public Thread
 
             // A reference to this pointer 
             Socket& socketReference = *newConnection;
-        //You can use this to read data from socket and write data to socket. You may want to put this read/write somewhere else. You may use ByteArray
+        //You can use this to read data from socket and write data to socket. You may want to put 		this read/write somewhere else. You may use ByteArray
         // Wait for data
             //socketReference.Read(data); //Get the data
             //Scramble the data
@@ -46,16 +47,14 @@ class ServerThread : public Thread
 
     int main(void)
     {
+    
         cout << "I am a server." << endl;
         
         // Create our server
         SocketServer server(3000);    
 
         // Need a thread to perform server operations
-        ServerThread serverThread(server);
-
-        //loop
-        //Keep listening for connections
+        ServerThread serverThread(server); 
         //if flag
         //shut down
 
