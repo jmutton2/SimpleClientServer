@@ -5,7 +5,7 @@
 #include <list>
 #include <vector>
 #include <algorithm>
-
+#include "socket.h"
 
 using namespace Sync;
 using namespace std;
@@ -52,7 +52,7 @@ class ServerThread : public Thread
         
         // Create our server
         SocketServer server(3000);    
-
+	server.Accept();
         // Need a thread to perform server operations
         ServerThread serverThread(server); 
         //if flag
