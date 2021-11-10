@@ -22,9 +22,9 @@ int main(void)
 	//Declare recv buffer
 	ByteArray recvBuff(p, 255);
 
-	//Try to connect to server 
-	//This isnt needed?
+	//Try to connect to server 	
 	socket.Open();
+
 
 	std::cout << "awaiting input.. " << std::endl;
 
@@ -37,8 +37,10 @@ int main(void)
 		//When reply 
 		if (userInput != "done") {
 			socket.Write(ByteArray(userInput));
+			sleep(2);
 
-			std::cout << " " << socket.Read(recvBuff) << std::endl;
+			std::cout << "Response: " << socket.Read(recvBuff) << std::endl;
+			
 		} else {
 			break;
 		}
