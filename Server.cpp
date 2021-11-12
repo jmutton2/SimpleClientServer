@@ -29,32 +29,25 @@ class ServerThread : public Thread
 
         virtual long ThreadMain()
         {
-        	int * p;
-            // Wait for a client socket connection
-            Socket* newConnection = new Socket(server.Accept());
-            //Calls alternate constructor in socket.h, creates a socket link with Client
-            //Client uses the other constructor that needs an IP and port
+        //int * p;
+         // Wait for a client socket connection
+        Socket* newConnection = new Socket(server.Accept());
+        //Calls alternate constructor in socket.h, creates a socket link with Client
+        //Client uses the other constructor that needs an IP and port
 
-            // A reference to this pointer 
-            Socket& socketReference = *newConnection;
-        //You can use this to read data from socket and write data to socket. You may want to put 		this read/write somewhere else. You may use ByteArray
+        // A reference to this pointer 
+        Socket& socketReference = *newConnection;
+
+        //ByteArray recvBuff(p, 255);
         
-    	//-----------------
-    	socketReference.Read();
-    	//return # of bytes and the buffer reference
-    	//bufferReference.ToString();
-    	//hopefully BF is ByteArray
-    	//If characters, combine to string
-    	//Mangle it
-    	socketReference.Write(ByteArray(mangledString));
-        
-        ByteArray recvBuff(p, 255);
-        
-        // Wait for data
-            //socketReference.Read(data); //Get the data
-            //Scramble the data
-            // Send it back
-            //socketReference.Write(data); //Send it back
+    	//socketReference.Read(recvBuff);
+    	
+    	//mangle string
+    	//string mangled = recvBuff.ToString() + " yolo";
+    	
+    	//Writing mangled string to connection
+    	//socketReference.Write(ByteArray(mangled));
+    	
         return 1;
         }
     };

@@ -38,8 +38,10 @@ int main(void)
 		if (userInput != "done") {
 			socket.Write(ByteArray(userInput));
 			sleep(2);
+			
+			socket.Read(recvBuff);
 
-			std::cout << "Response: " << socket.Read(recvBuff) << std::endl;
+			std::cout << "Response: " << recvBuff.ToString() << std::endl;
 			
 		} else {
 			break;
