@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Nov 10 11:59:16 2021
+# Make data base, printed on Fri Nov 12 18:34:53 2021
 
 # Variables
 
@@ -15,7 +15,7 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-96c95594-6772-421e-8002-6ec837594077.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-f1db6fac-0367-4deb-afdd-50c83511ab0f.sock
 # environment
 VSCODE_CWD = /home/lin
 # environment
@@ -35,7 +35,7 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/se3313-2020-lab3
+PWD = /home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/SimpleClientServer
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
@@ -65,7 +65,7 @@ MAKEFLAGS = pqrR
 # environment
 LESS_TERMCAP_so = [01;33m
 # makefile
-CURDIR := /home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/se3313-2020-lab3
+CURDIR := /home/lin/Desktop/Notes/3313_OPS/Projects/Lab3/SimpleClientServer
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 23599
+VSCODE_PID = 39944
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -233,9 +233,9 @@ GDMSESSION = default
 
 # Directories
 
-# . (device 66306, inode 29099137): 16 files, no impossibilities.
+# . (device 66306, inode 29099227): 24 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 24 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -252,7 +252,7 @@ socket.cpp:
 Client.o: Client.cpp socket.h
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
-#  File does not exist.
+#  Last modified 2021-11-12 18:34:27.824245368
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -268,7 +268,7 @@ Client.o: Client.cpp socket.h
 # automatic
 # ^ := Client.cpp socket.h
 # automatic
-# ? := Client.cpp socket.h
+# ? := socket.h
 # automatic
 # | := 
 # variable set hash-table stats:
@@ -279,13 +279,12 @@ Client.o: Client.cpp socket.h
 # Not a target:
 Blockable.h:
 #  Implicit rule search has not been done.
- 
 #  Modification time never checked.
 #  File has not been updated.
 
 Client: Client.o thread.o socket.o Blockable.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2021-11-12 18:34:27.824245368
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
@@ -295,6 +294,7 @@ Client: Client.o thread.o socket.o Blockable.o
 
 Blockable.o: Blockable.h Blockable.cpp
 #  Implicit rule search has not been done.
+ 
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 13):
@@ -303,7 +303,7 @@ Blockable.o: Blockable.h Blockable.cpp
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-10 11:16:07.188004892
+#  Last modified 2021-11-12 18:34:27.824245368
 #  File has been updated.
 #  Successfully updated.
 
@@ -383,7 +383,7 @@ thread.h:
 # Not a target:
 Client.cpp:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-10 11:46:45.268077298
+#  Last modified 2021-11-12 18:34:27.824245368
 #  File has been updated.
 #  Successfully updated.
 
@@ -396,7 +396,7 @@ Client.cpp:
 # Not a target:
 socket.h:
 #  Implicit rule search has been done.
-#  Last modified 2021-11-10 11:16:07.188004892
+#  Last modified 2021-11-12 18:34:27.828245368
 #  File has been updated.
 #  Successfully updated.
 
@@ -424,9 +424,9 @@ thread.o: thread.cpp thread.h
 # strcache buffers: 1 (0) / strings = 29 / storage = 289 B / avg = 9 B
 # current buf: size = 8162 B / used = 289 B / count = 29 / avg = 9 B
 
-# strcache performance: lookups = 69 / hit rate = 57%
+# strcache performance: lookups = 77 / hit rate = 62%
 # hash-table stats:
-# Load=29/8192=0%, Rehash=0, Collisions=0/69=0%
-# Finished Make data base on Wed Nov 10 11:59:16 2021
+# Load=29/8192=0%, Rehash=0, Collisions=0/77=0%
+# Finished Make data base on Fri Nov 12 18:34:53 2021
 
  

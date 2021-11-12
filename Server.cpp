@@ -29,24 +29,28 @@ class ServerThread : public Thread
 
         virtual long ThreadMain()
         {
-        //int * p;
-         // Wait for a client socket connection
-        Socket* newConnection = new Socket(server.Accept());
-        //Calls alternate constructor in socket.h, creates a socket link with Client
-        //Client uses the other constructor that needs an IP and port
+            int * p;
+            ByteArray recvBuff("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
 
-        // A reference to this pointer 
-        Socket& socketReference = *newConnection;
+            // Wait for a client socket connection
+            Socket* newConnection = new Socket(server.Accept());
+            //Calls alternate constructor in socket.h, creates a socket link with Client
+            //Client uses the other constructor that needs an IP and port
 
-        //ByteArray recvBuff(p, 255);
-        
-    	//socketReference.Read(recvBuff);
-    	
-    	//mangle string
-    	//string mangled = recvBuff.ToString() + " yolo";
-    	
-    	//Writing mangled string to connection
-    	//socketReference.Write(ByteArray(mangled));
+            // A reference to this pointer 
+            Socket& socketReference = *newConnection;
+
+            while(true) {
+                
+                socketReference.Read(recvBuff);
+                
+                //mangle string
+                string mangled = recvBuff.ToString() + " yolo";
+                
+                //Writing mangled string to connection
+                socketReference.Write(ByteArray(mangled));
+            }
+
     	
         return 1;
         }
