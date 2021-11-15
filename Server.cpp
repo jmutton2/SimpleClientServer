@@ -6,6 +6,7 @@
 #include <vector>
 #include <algorithm>
 #include "socket.h"
+#include "Blockable.h"
 
 using namespace Sync;
 using namespace std;
@@ -30,6 +31,9 @@ class ServerThread : public Thread
         virtual long ThreadMain()
         {
             int * p;
+           
+            ThreadSem loop(1);
+           
             ByteArray recvBuff("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
 
             // Wait for a client socket connection
@@ -41,14 +45,15 @@ class ServerThread : public Thread
             Socket& socketReference = *newConnection;
 
             while(true) {
-                
+                //loop.Wait();
                 socketReference.Read(recvBuff);
-                
                 //mangle string
                 string mangled = recvBuff.ToString() + " yolo";
                 
                 //Writing mangled string to connection
                 socketReference.Write(ByteArray(mangled));
+                //loop.Signal();
+                //break;
             }
 
     	
@@ -63,11 +68,26 @@ class ServerThread : public Thread
         cout << "I am a server." << endl;
         
         // Create our server
-        SocketServer server(3000);    
+        
+        //ThreadSem thr(0);
+        ThreadSem loop(0);
+        list<ServerThread *> threadList;
+        
+	SocketServer server(3000);  
+	
+	while(true){
+		if(server.Accept() != NULL){
+		threadList.push_back(new ServerThread (server));
+		//loop.Wait();
+		}
+	} 
+        	
+        
+         
 
         // Need a thread to perform server operations
-        ServerThread serverThread(server); 
-        //if flag
+        
+        //if flagS
         //shut down
 
 
