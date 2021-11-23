@@ -47,6 +47,11 @@ class ServerThread : public Thread
             while(true) {
                 
                 socketReference.Read(recvBuff);
+
+                if (recvBuff.ToString() == "done") {
+                    break;
+                }
+
                 //mangle string
                 string mangled = recvBuff.ToString() + " mangled";
                 
@@ -61,40 +66,36 @@ class ServerThread : public Thread
     };
 
 
-    int main(void)
-    {
+int main(void)
+{
+    std::string userInput;
+
+    cout << "I am a server." << endl;
     
-        cout << "I am a server." << endl;
-        
-        // Create our server
-        
-        
-        list<ServerThread *> threadList;
-        
-	SocketServer server(3000);  
-	
-	
-	for(int i=0;i<4;i++){
-		threadList.push_back(new ServerThread (server));
-		//ServerThread serverThread(server);
-		
-	} 
-        	
-         
+    // Create our server
+    
+    
+    list<ServerThread *> threadList;
+    
+    SocketServer server(3000);  
 
-        // Need a thread to perform server operations
+    
+    for(int i=0;i<4;i++){
+        threadList.push_back(new ServerThread (server));
+        //ServerThread serverThread(server);
         
-        //if flagS
-        //shut down
-
+    } 
+        
+    std::cin >> userInput;
+    while(true) {
+        if (userInput == "done") {
+            
+            break;
+        }
+    }
 
 
-        
-        // This will wait for input to shutdown the server
-        FlexWait cinWaiter(1, stdin);
-        cinWaiter.Wait();
-
-        // Shut down and clean up the server
-        server.Shutdown();
+    // Shut down and clean up the server
+    server.Shutdown();
 
 }
