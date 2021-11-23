@@ -30,9 +30,9 @@ class ServerThread : public Thread
 
         virtual long ThreadMain()
         {
-            int * p;
+            //int * p;
            
-            ThreadSem loop(1);
+            //ThreadSem loop(0);
            
             ByteArray recvBuff("lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
 
@@ -45,15 +45,14 @@ class ServerThread : public Thread
             Socket& socketReference = *newConnection;
 
             while(true) {
-                //loop.Wait();
+                
                 socketReference.Read(recvBuff);
                 //mangle string
-                string mangled = recvBuff.ToString() + " yolo";
+                string mangled = recvBuff.ToString() + " mangled";
                 
                 //Writing mangled string to connection
                 socketReference.Write(ByteArray(mangled));
-                //loop.Signal();
-                //break;
+                
             }
 
     	
@@ -69,20 +68,18 @@ class ServerThread : public Thread
         
         // Create our server
         
-        //ThreadSem thr(0);
-        ThreadSem loop(0);
+        
         list<ServerThread *> threadList;
         
 	SocketServer server(3000);  
 	
-	while(true){
-		if(server.Accept() != NULL){
+	
+	for(int i=0;i<4;i++){
 		threadList.push_back(new ServerThread (server));
-		//loop.Wait();
-		}
+		//ServerThread serverThread(server);
+		
 	} 
         	
-        
          
 
         // Need a thread to perform server operations

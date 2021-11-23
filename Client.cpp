@@ -43,15 +43,13 @@ int main(void)
 
 			std::cout << "Response: " << recvBuff.ToString() << std::endl;
 			
-		} else {
+		} 
+		if (userInput == "done") {
+			socket.Write(ByteArray("done"));
 			break;
 		}
-	
 	}
 
-	//If done entered
-	//Send flag to server
-	socket.Write(ByteArray("00000000"));
 	socket.Close();
 
 	return 0;
